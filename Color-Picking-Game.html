@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Arbeidskrav</title>
+</head>
+
+<body>
+    <main>
+        <section>
+            <h1>Fargespill v.2</h1>
+            <h3>Klikk på boksen nedenfor som matcher den store boksens farge</h3>
+            <div id="main-div"></div>
+        </section>
+        <section>
+            <h3 id="answer-result">Du har ikke svart enda.</h3>
+            <p id="correct-answer-number">Riktige svar: </p>
+            <p id="wrong-answer-number">Feil svar: </p>
+        </section>
+        <div id="div-1"></div>
+        <div id="div-2"></div>
+        <div id="div-3"></div>
+    </main>
+
+    <script>
+        /* Get elements */
+        var mainDiv = document.getElementById("main-div");
+        var div1 = document.getElementById("div-1");
+        var div2 = document.getElementById("div-2");
+        var div3 = document.getElementById("div-3");
+        var answerResult = document.getElementById("answer-result");
+        var correctAnswerNumber = document.getElementById("correct-answer-number");
+        var wrongAnswerNumber = document.getElementById("wrong-answer-number");
+
+
+        /* Random colors */
+        var getRandomColor1 = [Math.floor(Math.random() * 256), Math.floor(Math.random() * 256), Math.floor(Math.random() * 256)]
+        var getRandomColor2 = [Math.floor(Math.random() * 256), Math.floor(Math.random() * 256), Math.floor(Math.random() * 256)]
+        var getRandomColor3 = [Math.floor(Math.random() * 256), Math.floor(Math.random() * 256), Math.floor(Math.random() * 256)]
+
+
+        /* Styling functions */
+        mainDivStyling();
+        choiceBoxStyling();
+
+        function mainDivStyling() {
+            var boxArray = [getRandomColor1, getRandomColor2, getRandomColor3];
+            var randomBox = Math.floor(Math.random() * boxArray.length);
+            Object.assign(mainDiv.style, {
+                height: "200px",
+                width: "200px",
+                backgroundColor: `rgb(${boxArray[randomBox]})`
+            });
+        }
+
+        function choiceBoxStyling() {
+            Object.assign(div1.style, {
+                height: "100px",
+                width: "100px",
+                backgroundColor: `rgb(${getRandomColor1})`,
+                float: "left"
+            });
+            Object.assign(div2.style, {
+                height: "100px",
+                width: "100px",
+                backgroundColor: `rgb(${getRandomColor2})`,
+                float: "left"
+            });
+            Object.assign(div3.style, {
+                height: "100px",
+                width: "100px",
+                backgroundColor: `rgb(${getRandomColor3})`,
+                float: "left"
+            });
+        }
+
+        function colorRefresh() {
+            getRandomColor1 = [Math.floor(Math.random() * 256), Math.floor(Math.random() * 256), Math.floor(Math.random() * 256)]
+            getRandomColor2 = [Math.floor(Math.random() * 256), Math.floor(Math.random() * 256), Math.floor(Math.random() * 256)]
+            getRandomColor3 = [Math.floor(Math.random() * 256), Math.floor(Math.random() * 256), Math.floor(Math.random() * 256)]
+            mainDivStyling();
+            choiceBoxStyling();
+            backgroundColor1 = div1.style.backgroundColor;
+            backgroundColor2 = div2.style.backgroundColor;
+            backgroundColor3 = div3.style.backgroundColor;
+            backgroundColorMain = mainDiv.style.backgroundColor;
+        }
+
+
+        /* Variables to be used inside event listender */
+        var backgroundColor1 = div1.style.backgroundColor;
+        var backgroundColor2 = div2.style.backgroundColor;
+        var backgroundColor3 = div3.style.backgroundColor;
+        var backgroundColorMain = mainDiv.style.backgroundColor;
+        correctAnswerCounter = 0;
+        wrongAnswerCounter = 0;
+
+
+        /* MouseOut-event listeners */
+        div1.addEventListener("mouseout", function() {
+            div1.style.border = "";
+        });
+
+        div2.addEventListener("mouseout", function() {
+            div2.style.border = "";
+        });
+
+        div3.addEventListener("mouseout", function() {
+            div3.style.border = "";
+        });
+
+
+        /* Click-event listeners */
+        div1.addEventListener("click", function() {
+            div1.style.border = "2px solid black";
+            if (backgroundColorMain == backgroundColor1) {
+                answerResult.innerHTML = "Riktig svar!";
+                answerResult.style.color = "rgb(0, 256, 0)";
+                correctAnswerCounter += 1;
+                correctAnswerNumber.innerHTML = `Riktige svar: ${correctAnswerCounter}`;
+                colorRefresh();
+
+            } else {
+                answerResult.innerHTML = "Feil svar!";
+                answerResult.style.color = "rgb(256, 0, 0)";
+                wrongAnswerCounter += 1;
+                wrongAnswerNumber.innerHTML = `Riktige svar: ${wrongAnswerCounter}`;
+                colorRefresh();
+            }
+
+        });
+
+        div2.addEventListener("click", function() {
+            div2.style.border = "2px solid black";
+            if (backgroundColorMain == backgroundColor2) {
+                answerResult.innerHTML = "Riktig svar!";
+                answerResult.style.color = "rgb(0, 256, 0)";
+                correctAnswerCounter += 1;
+                correctAnswerNumber.innerHTML = `Riktige svar: ${correctAnswerCounter}`;
+                colorRefresh();
+
+            } else {
+                answerResult.innerHTML = "Feil svar!";
+                answerResult.style.color = "rgb(256, 0, 0)";
+                wrongAnswerCounter += 1;
+                wrongAnswerNumber.innerHTML = `Riktige svar: ${wrongAnswerCounter}`;
+                colorRefresh();
+            }
+        });
+
+        div3.addEventListener("click", function() {
+            div3.style.border = "2px solid black";
+            if (backgroundColorMain == backgroundColor3) {
+                answerResult.innerHTML = "Riktig svar!";
+                answerResult.style.color = "rgb(0, 256, 0)";
+                correctAnswerCounter += 1;
+                correctAnswerNumber.innerHTML = `Riktige svar: ${correctAnswerCounter}`;
+                colorRefresh();
+
+            } else {
+                answerResult.innerHTML = "Feil svar!";
+                answerResult.style.color = "rgb(256, 0, 0)";
+                wrongAnswerCounter += 1;
+                wrongAnswerNumber.innerHTML = `Riktige svar: ${wrongAnswerCounter}`;
+                colorRefresh();
+            }
+        });
+        
+        
+    </script>
+    
+    <!-- Du kunne valgt å bruke en For-loop til å generere farger fremfor å gjenta koden flere ganger 
+    Du burde kanskje hatt en reset-knapp fremfor at fargene ble tilbakestilt med en gang man trykker -->
+    
+</body></html>
