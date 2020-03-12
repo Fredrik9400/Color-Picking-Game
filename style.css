@@ -1,0 +1,49 @@
+.wrapper {
+    text-align: center;
+    width: fit-content;
+    margin: 1em auto;
+    padding: 1em;
+    height: auto;
+    color: #002b66;
+    background-image: linear-gradient(#9fb8ad 0%, #1fc8db 60%, #2cb5e8 80%);
+}
+
+.choice-divs {
+    display: inline-block;
+    margin: 30px;
+}
+
+#div-1, #div-2, #div-3 {
+    float: left;
+    margin: 10px;
+    border: 5px solid #1E376D;
+}
+
+#main-div {
+    display: inline-block;
+    margin: 30px;
+    border: 5px solid #1E376D;
+}
+
+.answer-output {
+    border: 5px solid #1E376D;
+}
+
+h1 {
+    font-size: 40px;
+    text-decoration: underline;
+}
+
+h2 {
+    font-size: 30px;
+    text-decoration: underline;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+p {
+    font-size: 20px;
+    text-decoration: underline;
+}
