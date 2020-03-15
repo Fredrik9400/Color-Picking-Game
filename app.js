@@ -80,7 +80,7 @@ div1.addEventListener("click", () => {
         answerResult.innerHTML = "Feil svar!";
         answerResult.style.color = "rgb(256, 0, 0)";
         wrongAnswerCounter += 1;
-        wrongAnswerNumber.innerHTML = `Riktige svar: ${wrongAnswerCounter}`;
+        wrongAnswerNumber.innerHTML = `Feil svar: ${wrongAnswerCounter}`;
         colorRefresh();
     }
 
@@ -98,7 +98,7 @@ div2.addEventListener("click", () => {
         answerResult.innerHTML = "Feil svar!";
         answerResult.style.color = "rgb(256, 0, 0)";
         wrongAnswerCounter += 1;
-        wrongAnswerNumber.innerHTML = `Riktige svar: ${wrongAnswerCounter}`;
+        wrongAnswerNumber.innerHTML = `Feil svar: ${wrongAnswerCounter}`;
         colorRefresh();
     }
 });
@@ -115,7 +115,7 @@ div3.addEventListener("click", () => {
         answerResult.innerHTML = "Feil svar!";
         answerResult.style.color = "rgb(256, 0, 0)";
         wrongAnswerCounter += 1;
-        wrongAnswerNumber.innerHTML = `Riktige svar: ${wrongAnswerCounter}`;
+        wrongAnswerNumber.innerHTML = `Feil svar: ${wrongAnswerCounter}`;
         colorRefresh();
     }
 });
